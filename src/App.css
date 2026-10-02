@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Archivo", sans-serif;
 }
 
 main{
@@ -10,4 +13,16 @@ main{
     width: 100%;
     flex-direction: column;
     justify-self: center;
+}
+
+h1 {
+  font-weight: 800;
+}
+
+p {
+  font-weight: 400;
+}
+
+button {
+  font-weight: 800;
 }

@@ -1,9 +1,10 @@
 import "./Home.css"
+import Hero from "./components/Hero/Hero.tsx"
 
 export default function Home(){
     return(
-        <div className="page">
-         <h1>hello wold!</h1>
+        <div className="home">
+            <Hero/>
         </div>
     )
 }
