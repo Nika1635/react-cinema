@@ -40,6 +40,7 @@
     display: flex;
     flex-direction: column;
     gap: 20PX;
+    width: 560px;
 }
 
 .hero-film-infolist{
@@ -70,9 +71,87 @@
 }
 
 .hero-film-desc{
-
+    font-weight: 400;
+    font-size: 16PX;
+    line-height: 130%;
+    letter-spacing: 0%;
 }
 
 .hero-film-buttons{
-    
+    display: flex;
+    gap: 12px;
 }
+
+.hero-film-buttons >button {
+    border-radius: 999px;
+    padding: 13px 22px;
+    gap: 4px;
+    opacity: 1;
+    border: 0px;
+    color: white;
+}
+
+.hero-film-buttons > button:first-child{
+    background: var(--color-red, rgba(236, 48, 19, 1));
+}
+
+.hero-film-buttons > button:last-child{
+    background: var(--tint-white, rgba(255, 255, 255, 0.1));
+}
+
+.hero-carousel{
+    display: flex;
+    position: absolute;
+    top: 664px;
+    left: 50%;
+    max-width: 1600px;
+    transform: translate(-50%);
+    gap: 24px;
+}
+
+.hero-carousel > div:last-child{
+    display: flex;
+    gap: 12px;
+}
+
+.hero-carousel > div:last-child >  button{
+    width: 54px;
+    height: 54px;
+    border-radius: 999px;
+    opacity: 1;
+    background: rgba(7, 12, 28, 0.2);
+    color: white;
+    border: 0;
+}
+
+.hero-carousel > div:first-child { 
+    display: flex;
+    gap: 8px;
+    width: 1450px;
+    align-items: center;
+}
+
+.line { 
+    flex: 1;
+    height: 3px;
+    background: var(--text-primary, rgba(255, 255, 255, 1));
+    cursor: pointer;
+    border-radius: 999px;
+}
+
+.fill { 
+    height: 100%;
+    width: 0;
+    background: var(--color-red, rgba(236, 48, 19, 1));
+    border-radius: 999px;
+}
+
+.full { 
+    width: 100%;
+}
+
+.grow { 
+    animation: grow 5s linear forwards;
+}
+
+@keyframes grow { to { width: 100%; } }
