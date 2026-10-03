@@ -1,0 +1,116 @@
+.nowplaying-card-hero{
+    box-sizing: border-box;
+    width: 260px;
+    height: 452px;
+    border-radius: 20px;
+    padding: 12px;
+    background: var(--bg-card, rgba(30, 32, 49, 1));
+    transition: 0.5s;
+}
+
+.nowplaying-card-content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.nowplaying-card-content > img{
+    width: 100%;
+    height: 300px;
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 14px;
+    transition: 1s;
+}
+
+.nowplaying-card-info{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    min-height: 0;
+    overflow: hidden;
+}
+
+
+.nowplaying-card-info > h3{
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: var(--text-primary, rgba(255, 255, 255, 1));
+}
+
+.nowplaying-card-info > h4{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 130%;
+    letter-spacing: 0%;
+    color: var(--text-secondary, rgba(169, 169, 169, 1));
+}
+
+.nowplaying-card-info > h5{
+    background: var(--tint-red, rgba(236, 48, 19, 0.1));
+    opacity: 1;
+    padding: 4px 7px;
+    border-radius: 999px;
+    font-weight: 500;
+    font-size: 12px;
+    color: var(--color-red, rgba(236, 48, 19, 1));
+    width: max-content;
+}
+
+.nowplaying-card-info > p{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    color: var(--text-secondary, rgba(169, 169, 169, 1));
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.nowplaying-card-content > div:last-child{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    justify-self: end;
+}
+
+.nowplaying-card-content > div:last-child > p{
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: var(--text-primary, rgba(255, 255, 255, 1));
+}
+
+.nowplaying-card-content > div:last-child > button{
+    background: var(--color-red, rgba(236, 48, 19, 1));
+    height: 35px;
+    gap: 4px;
+    opacity: 1;
+    padding: 10px 22px;
+    border-radius: 999px;
+    border: 0px;
+    color: white;
+}
+
+.nowplaying-card-hero:hover{
+    width: 442px;
+    height: 452px;
+    gap: 10px;
+    opacity: 1;
+    border-radius: 20px;
+    padding: 12px;
+    background: var(--bg-card, rgba(30, 32, 49, 1));
+}
+
+.nowplaying-card-hero:hover > div > img{
+    height: 224px;
+}
+
+.nowplaying-card-hero:hover .nowplaying-card-info > p{
+    opacity: 1;
+    transition: opacity 0.4s ease 0.4s;
+}
