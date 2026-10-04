@@ -1,20 +1,19 @@
-import "./NowPlayingSection.css"
-import NowPlayingCard from "./NowPlayingCard/NowPlayingCard.tsx"
+import ComingSoonCard from "./ComingSoonCard/ComingSoonCard";
 import { useEffect, useState } from "react"
 import axios from "axios";
 import ScrollContainer from "react-indiana-drag-scroll"
 
 
 
-export default function NowPlayingSection(){
+export default function ComingSoonSection(){
 
-    const [nowPlayingList, setNowPlayingList] = useState<any>([])
+    const [comingSoonList, setComingSoonList] = useState<any>([])
 
 
     useEffect(() => {
-        axios.get<any>("https://api.kinoxii.redberryinternship.ge/api/movies/now-playing")
+        axios.get<any>("https://api.kinoxii.redberryinternship.ge/api/movies/coming-soon")
         .then((res) => {
-            setNowPlayingList(res.data.data)
+            setComingSoonList(res.data.data)
         })
     
     }, [])
@@ -22,20 +21,19 @@ export default function NowPlayingSection(){
     return(
         <section className="movie-section">
             <div className="movie-section-title">
-                <h3>NOW PLAYING</h3>
+                <h3>Coming Soon</h3>
                 <a>See all</a>
             </div>
             <ScrollContainer className="movie-section-movielist">
                 {
-                    nowPlayingList.map((data: any) => (
-                            <NowPlayingCard key={data.id}
+                    comingSoonList.map((data: any) => (
+                            <ComingSoonCard key={data.id}
                                 cardPhoto={data.posterUrl}
                                 cardName={data.title}
+                                cardGenre={data.genres[0].name}
                                 cardDuration={data.runtimeMinutes}
                                 cardPg={data.ageRating.code}
-                                cardPrice={123}
-                                cardDesc={data.synopsis}
-                                cardGenre={data.genres[0].name}
+                                cardDate={data.releaseDate}
                             />
                     ))
                 }

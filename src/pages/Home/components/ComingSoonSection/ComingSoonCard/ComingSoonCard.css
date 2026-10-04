@@ -1,0 +1,91 @@
+.comingsoon-card-hero {
+    display: flex;
+    gap: 18px;
+    width: 470px;
+    height: 160px;
+    padding: 14px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    background: var(--bg-card, rgba(30, 32, 49, 1));
+    box-shadow: 0px 1px 4px 0px var(--shadow, rgba(0, 0, 0, 0.25));
+    flex-shrink: 0;
+}
+
+.comingsoon-card-hero img {
+    width: 136px;
+    height: 132px;
+    border-radius: 14px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.comingsoon-card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 288px;
+    padding-right: 70px;
+    box-sizing: border-box;
+}
+
+.comingsoon-card-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    width: 218px;
+    height: 96px;
+}
+
+.comingsoon-card-info p {
+    margin: 0;
+    color: var(--accent, #e8381a);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.comingsoon-card-info h3 {
+    margin: 0;
+    max-width: 100%;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.comingsoon-card-info h4 {
+    margin: 0;
+    color: var(--text-muted, #9a9ab0);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.comingsoon-card-info h5 {
+    margin: 0;
+    padding: 2px 10px;
+    border-radius: 8px;
+    background: rgba(232, 56, 26, 0.15);
+    color: var(--accent, #e8381a);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.comingsoon-card-content button {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 999px;
+    background: transparent;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 100%;
+    white-space: nowrap;
+    cursor: pointer;
+}

@@ -14,8 +14,6 @@ export default function Hero(){
         } else {
             setCurrentSlide(currentSlide + 1)
         }
-
-        console.log(currentSlide)
     }
 
     const prev = () => {
@@ -24,8 +22,6 @@ export default function Hero(){
         } else {
             setCurrentSlide(currentSlide - 1)
         }
-
-        console.log(currentSlide)
     }
 
 
