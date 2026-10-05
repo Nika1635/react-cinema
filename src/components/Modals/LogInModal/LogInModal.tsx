@@ -3,9 +3,11 @@ import { useState } from "react";
 
 interface LogInModalProps {
     onClose: () => void
+    onSwitch: () => void
 }   
 
-export default function LogInModal({ onClose }: LogInModalProps){
+export default function LogInModal(
+    { onClose, onSwitch }: LogInModalProps){
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -65,7 +67,7 @@ export default function LogInModal({ onClose }: LogInModalProps){
                                         id="password"
                                         name="password"
                                         type="password"
-                                        placeholder="......."
+                                        placeholder="••••••••"
                                         value={formData.password}
                                         onChange={handleChange}
                                     />
@@ -74,7 +76,7 @@ export default function LogInModal({ onClose }: LogInModalProps){
                         </div>
                         <div className="logIn-modal-actions">
                             <button type="submit">Log in</button>
-                            <p>Don't have an account? <a>Sign up</a></p>
+                            <p>Don't have an account? <a onClick={onSwitch}>Sign up</a></p>
                         </div>
                     </form>
                 </div>
