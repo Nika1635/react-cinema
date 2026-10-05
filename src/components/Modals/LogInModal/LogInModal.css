@@ -1,0 +1,171 @@
+.auth-modal-hero {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 403px;
+    min-height: 420px;
+    padding: 32px;
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 28px;
+    background: var(--bg-page, rgba(7, 12, 28, 1));
+}
+
+.modal-hero{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    background: rgba(16, 16, 16, 0.3);
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px)
+}
+
+.auth-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.auth-modal-header h1 {
+    margin: 0 0 8px;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.auth-modal-header h3 {
+    margin: 0;
+    color: var(--text-secondary, rgba(169, 169, 169, 1));
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.auth-modal-close {
+    display: flex;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+}
+
+.logIn-modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.logIn-modal-inputfields {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.logIn-modal-inputfields > div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.logIn-modal-inputfields label {
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.logIn-modal-inputwrap {
+    position: relative;
+}
+
+.logIn-modal-inputwrap input {
+    width: 100%;
+    height: 40px;
+    padding: 0 44px 0 16px;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    background: var(--bg-card, rgba(30, 32, 49, 1));
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    outline: none;
+}
+
+.logIn-modal-inputwrap input::placeholder {
+    color: var(--text-secondary, rgba(169, 169, 169, 1));
+}
+
+.logIn-modal-inputwrap input:focus {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.logIn-modal-inputwrap svg {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+}
+
+.icon-valid {
+    color: #3ddc84;
+}
+
+.icon-error {
+    color: var(--color-red, rgba(236, 48, 19, 1));
+}
+
+.logIn-modal-inputfields .error label,
+.logIn-modal-inputfields .error p {
+    color: var(--color-red, rgba(236, 48, 19, 1));
+}
+
+.logIn-modal-inputfields .error input {
+    border-color: var(--color-red, rgba(236, 48, 19, 1));
+    color: var(--color-red, rgba(236, 48, 19, 1));
+}
+
+.logIn-modal-inputfields p {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.logIn-modal-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.logIn-modal-actions button {
+    width: 100%;
+    height: 41px;
+    padding: 13px 22px;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 999px;
+    background: var(--color-red, rgba(236, 48, 19, 1));
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.logIn-modal-actions p {
+    margin: 0;
+    color: var(--text-secondary, rgba(169, 169, 169, 1));
+    font-size: 14px;
+}
+
+.logIn-modal-actions a {
+    color: var(--color-red, rgba(236, 48, 19, 1));
+    font-weight: 700;
+    cursor: pointer;
+}
