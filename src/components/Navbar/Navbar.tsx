@@ -5,7 +5,7 @@ import { useState } from "react"
 
 export default function Navbar(){
     const [logInModalState, setLogInModalState] = useState<boolean>(false)
-    const [signUpModalState, setSignUpModalState] = useState<boolean>(true)
+    const [signUpModalState, setSignUpModalState] = useState<boolean>(false)
 
     function changeSignUpModalState(){
         setLogInModalState(prev => prev = false)

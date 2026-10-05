@@ -1,0 +1,41 @@
+.session-hero{
+    background: var(--bg-page, rgba(7, 12, 28, 1));
+    display: flex;
+    align-items: flex-start;
+}
+
+.filter-section{
+    display: flex;
+    margin-top: 118px;
+    gap: 15px;
+    flex-direction: column;
+    position: sticky;
+    left: 51px;
+    top: calc(100vh - 1000px);
+}
+
+.session-list{
+    flex: 1;
+    height: 2000px; /* temporary, remove once the real list exists */
+}
+
+.filter-section > h1{
+    font-family: font/family;
+    font-weight: 800;
+    font-style: ExtraBold;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: white;
+}
+
+.filter-section > p{
+    font-family: font/family;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 14px;
+    line-height: 130%;
+    letter-spacing: 0%;
+    color: var(--text-secondary, rgba(169, 169, 169, 1));
+;
+}
