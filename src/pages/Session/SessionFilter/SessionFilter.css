@@ -23,7 +23,6 @@
     flex-direction: column;
 }
 
-/* each section, separated by a thin line */
 .session-filter-select,
 .session-filter-date {
     display: flex;
@@ -47,7 +46,6 @@
     color: var(--text-secondary, rgba(169, 169, 169, 1));
 }
 
-/* one option row: checkbox + label + optional hint */
 .session-filter-select > div {
     display: flex;
     align-items: center;
@@ -85,7 +83,6 @@
     cursor: pointer;
 }
 
-/* small gray text after the label, like "· Tbilisi" */
 .session-filter-select span {
     margin-left: -4px;
     font-size: 12px;
