@@ -4,23 +4,12 @@ import axios from "axios"
 
 export type Filters = {
     date: string
-<<<<<<< HEAD
     venues: number[]
     formats: number[]
     languages: number[]
     bands: string[]
 }
 
-=======
-    venues: string[]
-    formats: string[]
-    languages: string[]
-    bands: string[]
-}
-
-type Option = { id: number; slug: string; name: string; city?: string }
-
->>>>>>> df8f03b (sessionPage/filtering)
 export const emptyFilters: Filters = {
     date: "",
     venues: [],
@@ -31,11 +20,8 @@ export const emptyFilters: Filters = {
 
 type ArrayFilterKey = "venues" | "formats" | "languages" | "bands"
 
-<<<<<<< HEAD
 type Option = { id: number; name: string; city?: string }
 
-=======
->>>>>>> df8f03b (sessionPage/filtering)
 type FilterOptions = {
     venues?: Option[]
     formats?: Option[]
@@ -84,19 +70,11 @@ export default function SessionFilter({ filters, onChange, onClear }: SessionFil
                 <div key={item.id}>
                     <input
                         type="checkbox"
-<<<<<<< HEAD
                         id={`${prefix}-${item.id}`}
                         checked={filters[key].includes(item.id)}
                         onChange={() => toggle(key, item.id)}
                     />
                     <label htmlFor={`${prefix}-${item.id}`}>{item.name}</label>
-=======
-                        id={`${prefix}-${item.slug}`}
-                        checked={filters[key].includes(item.slug)}
-                        onChange={() => toggle(key, item.slug)}
-                    />
-                    <label htmlFor={`${prefix}-${item.slug}`}>{item.name}</label>
->>>>>>> df8f03b (sessionPage/filtering)
                     {item.city && <span>· {item.city}</span>}
                 </div>
             ))}
