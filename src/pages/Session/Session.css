@@ -16,7 +16,13 @@
 
 .session-list{
     flex: 1;
-    height: 2000px; /* temporary, remove once the real list exists */
+    margin-top: 200px;
+    margin-left: 100px;
+    display: flex;
+    flex-direction: column;
+    max-width: 1300PX;
+    width: 100% ;
+    gap: 20PX;
 }
 
 .filter-section > h1{
@@ -30,12 +36,55 @@
 }
 
 .filter-section > p{
-    font-family: font/family;
     font-weight: 400;
-    font-style: Regular;
     font-size: 14px;
     line-height: 130%;
     letter-spacing: 0%;
     color: var(--text-secondary, rgba(169, 169, 169, 1));
-;
+}
+
+.session-list-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.session-list-header > p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    letter-spacing: 0%;
+    color: var(--text-secondary, rgba(169, 169, 169, 1));
+}
+
+.session-list-header > div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.session-list-header label {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: 0%;
+    color: var(--text-secondary, rgba(169, 169, 169, 1));
+}
+
+.session-list-header select {
+    padding: 0 20px 0 0;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: var(--text-primary, rgba(255, 255, 255, 1));
+    cursor: pointer;
+}
+
+.session-list-header select option {
+    background: var(--bg-card, rgba(30, 32, 49, 1));
+    color: var(--text-primary, rgba(255, 255, 255, 1));
 }

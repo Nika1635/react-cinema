@@ -1,0 +1,181 @@
+.session-card-hero {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-bottom: 32px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.session-card-hero:last-child {
+    border-bottom: none;
+}
+
+.session-card-movie {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    height: 80px;
+}
+
+.session-card-poster {
+    width: 56px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.session-card-movie-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+}
+
+.session-card-movie-top {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.session-card-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: var(--text-primary, rgba(255, 255, 255, 1));
+}
+
+.session-card-age {
+    display: flex;
+    align-items: center;
+    padding: 4px 8px;
+    border-radius: 999px;
+    background: rgba(236, 48, 19, 0.1);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 100%;
+    color: var(--color-red, rgba(236, 48, 19, 1));
+}
+
+.session-card-meta {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 130%;
+    letter-spacing: 0%;
+    color: var(--text-secondary, rgba(169, 169, 169, 1));
+}
+
+.session-card-list {
+    display: flex;
+    align-items: stretch;
+    gap: 12px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+.session-card-list::-webkit-scrollbar {
+    display: none;
+}
+
+.session-card-item {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex-shrink: 0;
+    width: 252px;
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius: 16px;
+    background: var(--bg-card, rgba(30, 32, 49, 1));
+}
+
+.session-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.session-card-time {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 100%;
+    color: var(--text-primary, rgba(255, 255, 255, 1));
+}
+
+.session-card-format {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: var(--bg-raised, rgba(42, 44, 61, 1));
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 100%;
+    color: var(--text-primary, rgba(255, 255, 255, 1));
+}
+
+.session-card-details {
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+}
+
+.session-card-left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+    min-width: 0;
+}
+
+.session-card-language {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 130%;
+    color: var(--text-secondary, rgba(169, 169, 169, 1));
+}
+
+.session-card-venue {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 100%;
+    color: var(--text-primary, rgba(255, 255, 255, 1));
+    white-space: nowrap;
+}
+
+.session-card-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.session-card-seats {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 100%;
+    white-space: nowrap;
+    color: #3ddc84;
+}
+
+.session-card-seats-low {
+    color: var(--color-red, rgba(236, 48, 19, 1));
+}
+
+.session-card-price {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 100%;
+    color: var(--text-primary, rgba(255, 255, 255, 1));
+}
