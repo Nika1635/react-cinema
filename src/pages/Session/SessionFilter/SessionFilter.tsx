@@ -4,9 +4,9 @@ import axios from "axios"
 
 export type Filters = {
     date: string
-    venues: number[]
-    formats: number[]
-    languages: number[]
+    venues: string[]
+    formats: string[]
+    languages: string[]
     bands: string[]
 }
 
@@ -20,7 +20,7 @@ export const emptyFilters: Filters = {
 
 type ArrayFilterKey = "venues" | "formats" | "languages" | "bands"
 
-type Option = { id: number; name: string; city?: string }
+type Option = { id: number; slug: string; name: string; city?: string }
 
 type FilterOptions = {
     venues?: Option[]
@@ -70,11 +70,11 @@ export default function SessionFilter({ filters, onChange, onClear }: SessionFil
                 <div key={item.id}>
                     <input
                         type="checkbox"
-                        id={`${prefix}-${item.id}`}
-                        checked={filters[key].includes(item.id)}
-                        onChange={() => toggle(key, item.id)}
+                        id={`${prefix}-${item.slug}`}
+                        checked={filters[key].includes(item.slug)}
+                        onChange={() => toggle(key, item.slug)}
                     />
-                    <label htmlFor={`${prefix}-${item.id}`}>{item.name}</label>
+                    <label htmlFor={`${prefix}-${item.slug}`}>{item.name}</label>
                     {item.city && <span>· {item.city}</span>}
                 </div>
             ))}
