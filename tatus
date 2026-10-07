@@ -1,0 +1,10 @@
+[33mcommit 3e230dc23c2cac71c1147fabea44a1144c18da48[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: nika robakidze <nika70252@gmail.com>
+Date:   Wed Oct 7 19:11:23 2026 +0400
+
+    search
+
+ src/components/Navbar/Navbar.tsx                   |  45 [32m++++[m[31m-[m
+ .../Navbar/SearchDropdown/SearchDropdown.css       | 185 [32m+++++++++++++++++++++[m
+ .../Navbar/SearchDropdown/SearchDropdown.tsx       |  95 [32m+++++++++++[m
+ 3 files changed, 323 insertions(+), 2 deletions(-)

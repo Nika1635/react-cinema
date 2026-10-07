@@ -34,13 +34,13 @@ export default function Navbar(){
     }, [query])
 
     function changeSignUpModalState(){
-        setLogInModalState(prev => prev = false)
-        setSignUpModalState(prev => prev = !prev)
+        setLogInModalState(false)
+        setSignUpModalState(prev => !prev)
     }
 
     function changelogInModalState(){
-        setSignUpModalState(prev => prev = false)
-        setLogInModalState(prev => prev = !prev)
+        setSignUpModalState(false)
+        setLogInModalState(prev => !prev)
     }
     
     return(
