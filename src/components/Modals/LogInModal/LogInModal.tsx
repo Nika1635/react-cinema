@@ -1,5 +1,6 @@
 import "./LogInModal.css"
 import { useState } from "react";
+import { logInUser } from "../../../services/authApi.ts";
 
 interface LogInModalProps {
     onClose: () => void
@@ -19,11 +20,19 @@ export default function LogInModal(
             ...prev,
             [name]: value,
         }))
+        console.log(formData)
     }
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
-        console.log(formData)
+        logInUser(formData)
+        .then((res: any) => {
+            console.log(res.data)
+            onClose()
+        })
+        .catch((err: any) => {
+            console.log(err.response?.data)
+        })
     }
 
     return(

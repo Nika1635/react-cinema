@@ -1,5 +1,6 @@
 import "./SignUpModal.css"
 import { useState } from "react";
+import { registerUser } from "../../../services/authApi";
 
 type SignUpModalProps = {
     onClose: () => void
@@ -24,7 +25,14 @@ export default function SignUpModal({ onClose, onSwitch }: SignUpModalProps){
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
-        console.log(formData)
+        registerUser(formData)
+        .then((res: any) => {
+            console.log(res.data)
+            onClose()
+        })
+        .catch((err: any) => {
+            console.log(err.response?.data)
+        })
     }
 
     return(
