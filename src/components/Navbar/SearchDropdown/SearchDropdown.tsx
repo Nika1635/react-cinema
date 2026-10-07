@@ -25,7 +25,7 @@ export default function SearchDropdown({ query, results }: SearchDropdownProps){
                     </div>
                     <h4 className="search-dropdown-empty-title">What do you want to watch?</h4>
                     <p className="search-dropdown-empty-text">Search by title, director or cast</p>
-                    <button className="search-dropdown-button" onClick={() => navigate("/sessions")}>
+                    <button className="search-dropdown-button" onClick={() => navigate("/session")}>
                         Browse all sessions
                     </button>
                 </div>
