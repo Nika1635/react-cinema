@@ -1,10 +1,11 @@
 import "./Navbar.css"
 import { useEffect, useState } from "react"
+import { useAuth } from "../../services/AuthContext.tsx"
 import axios from "axios"
 import LogInModal from "../Modals/LogInModal/LogInModal.tsx"
 import SignUpModal from "../Modals/SignUpModal/SignUpModal.tsx"
 import SearchDropdown from "./SearchDropdown/SearchDropdown.tsx"
-import { useAuth } from "../../services/AuthContext.tsx"
+import ProfileDropdown from "./ProfileDropdown/ProfileDropdown.tsx"
 
 export default function Navbar(){
     const { user, logout } = useAuth()
@@ -92,17 +93,16 @@ export default function Navbar(){
                         )}
                     </div>
 
-                    {user ? (
-                        <div className="account">
-                            <span>{user.username}</span>
-                            <button className="logIn" onClick={logout}>Log out</button>
-                        </div>
-                    ) : (
-                        <div className="account">
-                            <button className="signUp" onClick={changeSignUpModalState}>Sign Up</button>
-                            <button className="logIn" onClick={changelogInModalState}>Log In</button>
-                        </div>
-                    )}
+                    {user ? 
+                        (
+                            <ProfileDropdown user={user} onLogout={logout} />
+                        ) : (
+                            <div className="account">
+                                <button className="signUp" onClick={changeSignUpModalState}>Sign Up</button>
+                                <button className="logIn" onClick={changelogInModalState}>Log In</button>
+                            </div>
+                        )
+                    }
                 </nav>
             </header>
         </div>

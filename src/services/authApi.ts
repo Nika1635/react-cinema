@@ -13,6 +13,13 @@ type LoginData = {
     password: string
 }
 
+type ProfileData = {
+    fullName: string
+    mobileNumber: string
+    dateOfBirth: string
+    preferredVenueId: string
+}
+
 export function registerUser(data: RegisterData) {
     const body = new FormData()
     body.append("username", data.username)
@@ -33,4 +40,14 @@ export function logInUser(data: LoginData) {
 
 export function getMe() {
     return api.get("/me")
+}
+
+export function updateProfile(data: ProfileData) {
+    const body = new FormData()
+    body.append("fullName", data.fullName)
+    body.append("mobileNumber", data.mobileNumber)
+    body.append("dateOfBirth", data.dateOfBirth)
+    if (data.preferredVenueId) body.append("preferredVenueId", data.preferredVenueId)
+
+    return api.put("/profile", body)
 }

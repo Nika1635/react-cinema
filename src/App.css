@@ -5,6 +5,11 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Archivo", sans-serif;
+    --bg-page: #070C1C;
+    --bg-card: #1E2031;
+    --color-red: #EC3013;
+    --text-primary: #fff;
+    --text-muted: #8F93A8;
 }
 
 main{
