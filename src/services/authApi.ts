@@ -1,6 +1,4 @@
-import axios from "axios"
-
-const BASE_URL = "https://api.kinoxii.redberryinternship.ge/api"
+import api from "./api"
 
 type RegisterData = {
     username: string
@@ -23,13 +21,16 @@ export function registerUser(data: RegisterData) {
     body.append("password_confirmation", data.confirmPassword)
     if (data.avatar) body.append("avatar", data.avatar)
 
-    return axios.post(`${BASE_URL}/register`, body)
+    return api.post("/register", body)
 }
 
 export function logInUser(data: LoginData) {
-    return axios.post(`${BASE_URL}/login`, {
+    return api.post("/login", {
         email: data.email,
         password: data.password,
     })
 }
 
+export function getMe() {
+    return api.get("/me")
+}

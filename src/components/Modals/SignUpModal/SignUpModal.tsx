@@ -1,13 +1,16 @@
 import "./SignUpModal.css"
-import { useState } from "react";
-import { registerUser } from "../../../services/authApi";
+import { useState } from "react"
+import { registerUser, logInUser } from "../../../services/authApi.ts"
+import { useAuth } from "../../../services/AuthContext.tsx"
 
 type SignUpModalProps = {
     onClose: () => void
     onSwitch: () => void
-};
+}
 
 export default function SignUpModal({ onClose, onSwitch }: SignUpModalProps){
+    const { login } = useAuth()
+    const [error, setError] = useState<string>("")
     const [formData, setFormData] = useState({
         username: '',
         email: '',
@@ -25,14 +28,16 @@ export default function SignUpModal({ onClose, onSwitch }: SignUpModalProps){
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
+        setError("")
+
         registerUser(formData)
-        .then((res: any) => {
-            console.log(res.data)
-            onClose()
-        })
-        .catch((err: any) => {
-            console.log(err.response?.data)
-        })
+            .then(() => logInUser({ email: formData.email, password: formData.password }))
+            .then((res) => login(res.data.token ?? res.data.data?.token))
+            .then(() => onClose())
+            .catch((err) => {
+                console.log(err.response?.data)
+                setError("Could not sign up. Check your details and try again.")
+            })
     }
 
     return(
@@ -129,6 +134,7 @@ export default function SignUpModal({ onClose, onSwitch }: SignUpModalProps){
                             </div>
                         </div>
                         <div className="logIn-modal-actions">
+                            {error && <p style={{ color: "red" }}>{error}</p>}
                             <button type="submit">Sign up</button>
                             <p>Already have an account? <a onClick={onSwitch}>Log in</a></p>
                         </div>

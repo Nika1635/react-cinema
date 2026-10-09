@@ -1,14 +1,16 @@
 import "./LogInModal.css"
-import { useState } from "react";
-import { logInUser } from "../../../services/authApi.ts";
+import { useState } from "react"
+import { logInUser } from "../../../services/authApi.ts"
+import { useAuth } from "../../../services/AuthContext.tsx"
 
-interface LogInModalProps {
+type LogInModalProps = {
     onClose: () => void
     onSwitch: () => void
-}   
+}
 
-export default function LogInModal(
-    { onClose, onSwitch }: LogInModalProps){
+export default function LogInModal({ onClose, onSwitch }: LogInModalProps){
+    const { login } = useAuth()
+    const [error, setError] = useState<string>("")
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -20,19 +22,23 @@ export default function LogInModal(
             ...prev,
             [name]: value,
         }))
-        console.log(formData)
     }
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
+        setError("")
+
         logInUser(formData)
-        .then((res: any) => {
-            console.log(res.data)
-            onClose()
-        })
-        .catch((err: any) => {
-            console.log(err.response?.data)
-        })
+            .then((res: any) => {
+                console.log(res.data)
+                const token = res.data.token ?? res.data.data?.token
+                return login(token)
+            })
+            .then(() => onClose())
+            .catch((err: any) => {
+                console.log(err.response?.data)
+                setError("Invalid email or password")
+            })
     }
 
     return(
@@ -53,7 +59,7 @@ export default function LogInModal(
                     </button>
                 </div>
                 <div>
-                    <form className="logIn-modal-form" onSubmit={handleSubmit}>
+                    <form className="logIn-modal-form" onSubmit={handleSubmit} noValidate>
                         <div className="logIn-modal-inputfields">
                             <div>
                                 <label htmlFor="email">Email</label>
@@ -84,6 +90,7 @@ export default function LogInModal(
                             </div>
                         </div>
                         <div className="logIn-modal-actions">
+                            {error && <p style={{ color: "red" }}>{error}</p>}
                             <button type="submit">Log in</button>
                             <p>Don't have an account? <a onClick={onSwitch}>Sign up</a></p>
                         </div>
