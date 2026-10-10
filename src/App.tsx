@@ -5,6 +5,7 @@ import Session from './pages/Session/Session.tsx'
 import Footer from './components/Footer/Footer.tsx'
 import { BrowserRouter, Route, Routes } from 'react-router'
 import Profile from './pages/Profile/Profile.tsx'
+import Details from './pages/Details/Details.tsx'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           <Route path='/' element={<Home/>}/>
           <Route path='/session' element={<Session/>}/>
           <Route path="/profile" element={<Profile/>} />
+          <Route path="/movies/:slug" element={<Details/>} />
         </Routes>
         
         <Footer/>
