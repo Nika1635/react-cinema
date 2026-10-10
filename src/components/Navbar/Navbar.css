@@ -11,29 +11,32 @@
 }
 
 
-.nav-header > a > h1{
+.nav-header > div > h1{
     font-style: normal;
     font-size: 24px;
     letter-spacing: 0;
     color: white;
     line-height: normal;
+    cursor: pointer;
 }
 
-.nav-header > a > h2{
+.nav-header > div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+}
+
+.nav-header > div > a{
     font-weight: 600;
     font-style: normal;
     font-size: 12px;
     letter-spacing: 6%;
     text-transform: uppercase;
     color: white;
+    cursor: pointer;
 }
 
-.nav-header > a{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 36px;
-}
 
 nav{
     display: flex;

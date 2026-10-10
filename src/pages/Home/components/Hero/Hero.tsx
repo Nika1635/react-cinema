@@ -2,11 +2,13 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 import "./Hero.css"
 import type { MoviesResponse, Movie } from "../../../../interfaces/movie"
+import { useNavigate } from "react-router"
 
 export default function Hero(){
     const [ currentSlide, setCurrentSlide] = useState<number>(0)
     const [ heroInfo, setHeroInfo ] =  useState<Movie[]>([])
     const totalSlides: number = heroInfo?.length
+    let navigate = useNavigate()
     
     const next = () => {
         if (currentSlide === totalSlides - 1) {
@@ -41,8 +43,6 @@ export default function Hero(){
         <section className="hero-section" 
         style={{ backgroundImage: `linear-gradient(270deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.8) 100%), url(${heroInfo[currentSlide]?.backdropUrl})` }}
         >
-                
-            {/* <button onClick={() => console.log(heroInfo[0])}>click</button> */}
             <div>
                 <p className="hero-premiere">PREMIERE · WEEK OF 15 SEPT</p>
 
@@ -56,8 +56,8 @@ export default function Hero(){
                     </div>
                     <p className="hero-film-desc">{heroInfo[currentSlide]?.synopsis}</p>
                     <div className="hero-film-buttons">
-                        <button>Buy Tickets</button>
-                        <button>All Session</button>
+                        <button onClick={() => navigate(`/movies/${heroInfo[currentSlide]?.slug}`)}>Buy Tickets</button>
+                        <button onClick={() => navigate('/session')}>All Session</button>
                     </div>
                 </div>
             </div>

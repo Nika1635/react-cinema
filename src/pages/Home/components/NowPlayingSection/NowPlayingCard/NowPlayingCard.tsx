@@ -1,4 +1,5 @@
 import "./NowPlayingCard.css"
+import { useNavigate } from "react-router";
 
 type NowPlayingCardProps = {
     cardPhoto: string;
@@ -8,9 +9,12 @@ type NowPlayingCardProps = {
     cardPrice: number;
     cardDesc: string;
     cardGenre: string;
+    cardSlug: string;
 };
 
-export default function NowPlayingCard({cardPhoto, cardName, cardDuration, cardPg, cardDesc, cardPrice, cardGenre}: NowPlayingCardProps){
+export default function NowPlayingCard({cardPhoto, cardName, cardDuration, cardPg, cardDesc, cardPrice, cardGenre, cardSlug}: NowPlayingCardProps){
+    let navigate = useNavigate()
+    
     return(
         <div className="nowplaying-card-hero">
             <div className="nowplaying-card-content">
@@ -23,7 +27,7 @@ export default function NowPlayingCard({cardPhoto, cardName, cardDuration, cardP
                 </div>
                 <div>
                     <p>From {cardPrice}</p>
-                    <button>Buy Ticket</button>
+                    <button onClick={() => navigate(`/movies/${cardSlug}`)}>Buy Ticket</button>
                 </div>
             </div>
         </div>

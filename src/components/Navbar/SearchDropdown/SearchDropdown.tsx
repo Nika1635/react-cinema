@@ -9,7 +9,7 @@ type SearchDropdownProps = {
 const capitalize = (text: string) => text.charAt(0).toUpperCase() + text.slice(1)
 
 export default function SearchDropdown({ query, results }: SearchDropdownProps){
-    const navigate = useNavigate()
+    let navigate = useNavigate()
 
     return(
         <div className="search-dropdown-hero">

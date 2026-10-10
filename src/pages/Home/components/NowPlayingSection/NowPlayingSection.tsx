@@ -36,6 +36,7 @@ export default function NowPlayingSection(){
                                 cardPrice={123}
                                 cardDesc={data.synopsis}
                                 cardGenre={data.genres[0].name}
+                                cardSlug={data.slug}
                             />
                     ))
                 }

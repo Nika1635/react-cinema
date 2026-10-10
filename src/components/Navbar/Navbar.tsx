@@ -6,16 +6,16 @@ import LogInModal from "../Modals/LogInModal/LogInModal.tsx"
 import SignUpModal from "../Modals/SignUpModal/SignUpModal.tsx"
 import SearchDropdown from "./SearchDropdown/SearchDropdown.tsx"
 import ProfileDropdown from "./ProfileDropdown/ProfileDropdown.tsx"
+import { useNavigate } from "react-router"
 
 export default function Navbar(){
     const { user, logout } = useAuth()
-
     const [logInModalState, setLogInModalState] = useState<boolean>(false)
     const [signUpModalState, setSignUpModalState] = useState<boolean>(false)
-
     const [searchFocused, setSearchFocused] = useState<boolean>(false)
     const [query, setQuery] = useState<string>("")
     const [results, setResults] = useState<any[]>([])
+    let navigate = useNavigate()
 
     function changeSignUpModalState(){
         setLogInModalState(false)
@@ -69,10 +69,10 @@ export default function Navbar(){
 
             <header className="nav-section">
                 <div className="nav-header">
-                    <a>
-                        <h1>KINO <span style={{color: "red"}}>XII</span></h1>
-                        <h2>session</h2>
-                    </a>
+                    <div>
+                        <h1 onClick={() => navigate("/")}>KINO <span style={{color: "red"}}>XII</span></h1>
+                        <a onClick={() => navigate("/session")}>session</a>
+                    </div>
                 </div>
 
                 <nav>
