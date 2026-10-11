@@ -31,7 +31,6 @@ export default function LogInModal({ onClose, onSwitch, onSuccess }: LogInModalP
 
         logInUser(formData)
             .then((res: any) => {
-                console.log(res.data)
                 const token = res.data.token ?? res.data.data?.token
                 return login(token)
             })
