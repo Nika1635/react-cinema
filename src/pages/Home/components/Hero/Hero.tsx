@@ -57,7 +57,7 @@ export default function Hero(){
                     <p className="hero-film-desc">{heroInfo[currentSlide]?.synopsis}</p>
                     <div className="hero-film-buttons">
                         <button onClick={() => navigate(`/movies/${heroInfo[currentSlide]?.slug}`)}>Buy Tickets</button>
-                        <button onClick={() => navigate('/session')}>All Session</button>
+                        <button onClick={() => navigate('/sessions')}>All Session</button>
                     </div>
                 </div>
             </div>

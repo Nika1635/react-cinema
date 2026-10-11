@@ -24,7 +24,6 @@ export default function ProfilePage(){
 
     useEffect(() => {
         if (!user) return
-        console.log(user)
         setFormData({
             fullName: user.fullName ?? user.username ?? "",
             mobileNumber: user.mobileNumber ?? "",
