@@ -128,3 +128,47 @@
     background-color: transparent;
     border: 1px solid var(--text-secondary, rgba(169, 169, 169, 1))
 }
+
+.date-picker {
+    display: flex;
+    gap: 8px;
+}
+
+.date-btn {
+    flex: 0 0 auto;
+    width: 52px;
+    padding: 10px 0;
+    border: none;
+    border-radius: 10px;
+    background: #23253a;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.15s;
+}
+
+.date-btn:hover {
+    background: #2f3250;
+}
+
+.date-btn.active {
+    background: #f23a14;
+}
+
+.date-btn-weekday {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.date-btn-day {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.date-btn:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+}

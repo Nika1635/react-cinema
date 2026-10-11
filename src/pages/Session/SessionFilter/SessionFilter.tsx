@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useMemo } from "react"
 import "./SessionFilter.css"
 import axios from "axios"
+import { getNextDays } from "../../../components/toISOString.ts"
+import ScrollContainer from "react-indiana-drag-scroll"
 
 export type Filters = {
     date: string
@@ -42,7 +44,7 @@ const times = [
 
 export default function SessionFilter({ filters, onChange, onClear }: SessionFilterProps) {
     const [options, setOptions] = useState<FilterOptions>({})
-
+    const days = useMemo(() => getNextDays(7), [])
     useEffect(() => {
         axios
             .get("https://api.kinoxii.redberryinternship.ge/api/filter-options")
@@ -94,15 +96,24 @@ export default function SessionFilter({ filters, onChange, onClear }: SessionFil
 
             <div className="session-filter-list">
                 {renderGroup("Venue", "venues", options.venues, "venue")}
-
-                <div className="session-filter-date">
-                    <h2 className="session-filter-options">Date</h2>
-                    <input
-                        type="date"
-                        className="session-filter-options-date"
-                        value={filters.date}
-                        onChange={(e) => onChange({ ...filters, date: e.target.value })}
-                    />
+                <div>
+                    <h2 style={{marginTop: "20px"}} className="session-filter-options">Date</h2>
+                    <ScrollContainer className="session-filter-date">
+                        <div className="date-picker">
+                            {days.map((d) => (
+                                <button
+                                    key={d.value}
+                                    type="button"
+                                    className={`date-btn ${filters.date === d.value ? "active" : ""}`}
+                                    onClick={() => onChange({ ...filters, date: d.value })}
+                                    aria-pressed={filters.date === d.value}
+                                >
+                                    <span className="date-btn-weekday">{d.weekday}</span>
+                                    <span className="date-btn-day">{d.day}</span>
+                                </button>
+                            ))}
+                        </div>
+                    </ScrollContainer>
                 </div>
 
                 {renderGroup("Format", "formats", options.formats, "format")}
