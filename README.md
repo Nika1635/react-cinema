@@ -3,6 +3,3 @@ Kinoxii is a full-featured cinema ticket booking web application assgiment.
 languages used: Typescript
 tools: Vercel(Hosting), Vite
 libraries: React, React-router, Axios, react-indiana-drag-scroll
-
-
-The booking flow is a two-step modal. Step 1 is an interactive hall map rendered dynamically from API data, with seat rules and Adult/Child/Student pricing. Step 2 is a checkout with card validation and a live 8-minute seat-hold countdown. The app also handles seat conflicts (409), session expiry (401), age-restricted films, profile completion gating, and ticket refunds. It features authentication modals with automatic action resume, a profile page with form validation, and a My Tickets section split into upcoming and past orders.
