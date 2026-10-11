@@ -6,9 +6,10 @@ import { useAuth } from "../../../services/AuthContext.tsx"
 type SignUpModalProps = {
     onClose: () => void
     onSwitch: () => void
+    onSuccess: () => void
 }
 
-export default function SignUpModal({ onClose, onSwitch }: SignUpModalProps){
+export default function SignUpModal({ onClose, onSwitch, onSuccess }: SignUpModalProps){
     const { login } = useAuth()
     const [error, setError] = useState<string>("")
     const [formData, setFormData] = useState({
@@ -33,7 +34,7 @@ export default function SignUpModal({ onClose, onSwitch }: SignUpModalProps){
         registerUser(formData)
             .then(() => logInUser({ email: formData.email, password: formData.password }))
             .then((res) => login(res.data.token ?? res.data.data?.token))
-            .then(() => onClose())
+            .then(() => onSuccess())
             .catch((err) => {
                 console.log(err.response?.data)
                 setError("Could not sign up. Check your details and try again.")

@@ -1,31 +1,19 @@
 import "./Navbar.css"
 import { useEffect, useState } from "react"
-import { useAuth } from "../../services/AuthContext.tsx"
+import { useNavigate } from "react-router"
 import axios from "axios"
-import LogInModal from "../Modals/LogInModal/LogInModal.tsx"
-import SignUpModal from "../Modals/SignUpModal/SignUpModal.tsx"
+import { useAuth } from "../../services/AuthContext.tsx"
+import { useAuthModal } from "../../services/authModalContext.tsx"
 import SearchDropdown from "./SearchDropdown/SearchDropdown.tsx"
 import ProfileDropdown from "./ProfileDropdown/ProfileDropdown.tsx"
-import { useNavigate } from "react-router"
 
 export default function Navbar(){
     const { user, logout } = useAuth()
-    const [logInModalState, setLogInModalState] = useState<boolean>(false)
-    const [signUpModalState, setSignUpModalState] = useState<boolean>(false)
+    const { openLogin, openSignUp } = useAuthModal()
+    const navigate = useNavigate()
     const [searchFocused, setSearchFocused] = useState<boolean>(false)
     const [query, setQuery] = useState<string>("")
     const [results, setResults] = useState<any[]>([])
-    let navigate = useNavigate()
-
-    function changeSignUpModalState(){
-        setLogInModalState(false)
-        setSignUpModalState(prev => !prev)
-    }
-
-    function changelogInModalState(){
-        setSignUpModalState(false)
-        setLogInModalState(prev => !prev)
-    }
 
     useEffect(() => {
         const trimmed = query.trim()
@@ -54,24 +42,11 @@ export default function Navbar(){
 
     return(
         <div className="nav-wrapper">
-            {signUpModalState && (
-                <SignUpModal
-                    onClose={() => setSignUpModalState(false)}
-                    onSwitch={changelogInModalState}
-                />
-            )}
-            {logInModalState && (
-                <LogInModal
-                    onClose={() => setLogInModalState(false)}
-                    onSwitch={changeSignUpModalState}
-                />
-            )}
-
             <header className="nav-section">
                 <div className="nav-header">
                     <div>
                         <h1 onClick={() => navigate("/")}>KINO <span style={{color: "red"}}>XII</span></h1>
-                        <a onClick={() => navigate("/session")}>session</a>
+                        <a onClick={() => navigate("/sessions")}>session</a>
                     </div>
                 </div>
 
@@ -80,6 +55,7 @@ export default function Navbar(){
                         <input
                             type="text"
                             className="searchBar"
+                            placeholder="Search films and live events"
                             value={query}
                             onChange={(e) => setQuery(e.target.value)}
                             onFocus={() => setSearchFocused(true)}
@@ -93,16 +69,14 @@ export default function Navbar(){
                         )}
                     </div>
 
-                    {user ? 
-                        (
-                            <ProfileDropdown user={user} onLogout={logout} />
-                        ) : (
-                            <div className="account">
-                                <button className="signUp" onClick={changeSignUpModalState}>Sign Up</button>
-                                <button className="logIn" onClick={changelogInModalState}>Log In</button>
-                            </div>
-                        )
-                    }
+                    {user ? (
+                        <ProfileDropdown user={user} onLogout={logout} />
+                    ) : (
+                        <div className="account">
+                            <button className="signUp" onClick={() => openSignUp()}>Sign Up</button>
+                            <button className="logIn" onClick={() => openLogin()}>Log In</button>
+                        </div>
+                    )}
                 </nav>
             </header>
         </div>

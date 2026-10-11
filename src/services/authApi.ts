@@ -44,10 +44,10 @@ export function getMe() {
 
 export function updateProfile(data: ProfileData) {
     const body = new FormData()
+    body.append("_method", "PUT")
     body.append("fullName", data.fullName)
     body.append("mobileNumber", data.mobileNumber)
     body.append("dateOfBirth", data.dateOfBirth)
-    if (data.preferredVenueId) body.append("preferredVenueId", data.preferredVenueId)
-
-    return api.put("/profile", body)
+    body.append("preferredVenueId", data.preferredVenueId || "0")
+    return api.post("/profile", body)
 }

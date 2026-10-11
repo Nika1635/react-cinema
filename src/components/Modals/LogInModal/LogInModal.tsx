@@ -6,9 +6,10 @@ import { useAuth } from "../../../services/AuthContext.tsx"
 type LogInModalProps = {
     onClose: () => void
     onSwitch: () => void
+    onSuccess: () => void
 }
 
-export default function LogInModal({ onClose, onSwitch }: LogInModalProps){
+export default function LogInModal({ onClose, onSwitch, onSuccess }: LogInModalProps){
     const { login } = useAuth()
     const [error, setError] = useState<string>("")
     const [formData, setFormData] = useState({
@@ -34,7 +35,7 @@ export default function LogInModal({ onClose, onSwitch }: LogInModalProps){
                 const token = res.data.token ?? res.data.data?.token
                 return login(token)
             })
-            .then(() => onClose())
+            .then(() => onSuccess())
             .catch((err: any) => {
                 console.log(err.response?.data)
                 setError("Invalid email or password")
