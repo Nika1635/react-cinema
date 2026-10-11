@@ -33,7 +33,6 @@ const getAge = (dateOfBirth: string) => {
 export default function Details() {
     const [selectedSession, setSelectedSession] = useState<any>(null)
     const { slug } = useParams()
-    const navigate = useNavigate()
     const { user } = useAuth()
 
     const days = getNextDays()
