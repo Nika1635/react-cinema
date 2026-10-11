@@ -1,6 +1,6 @@
 import "./Details.css"
 import { useEffect, useState } from "react"
-import { useNavigate, useParams } from "react-router"
+import { useParams } from "react-router"
 import axios from "axios"
 import { useAuth } from "../../services/AuthContext.tsx"
 import BuyModal from "../../components/Modals/BuyModal/BuyModal.tsx"

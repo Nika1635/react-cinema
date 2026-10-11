@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router";
 import "./SessionCard.css"
 
 type SessionCardProps = {
@@ -5,9 +6,11 @@ type SessionCardProps = {
     sessions: any[];
 };
 
-export default function SessionCard({ movie, sessions }: SessionCardProps){
+export default function SessionCard({ movie, sessions}: SessionCardProps){
+    const navigate = useNavigate()
+    
     return(
-        <div className="session-card-hero">
+        <div onClick={() => navigate(`/movies/${movie.slug}`)} className="session-card-hero">
             <div className="session-card-movie">
                 <img className="session-card-poster" src={movie.posterUrl} alt={movie.title} />
                 <div className="session-card-movie-info">
