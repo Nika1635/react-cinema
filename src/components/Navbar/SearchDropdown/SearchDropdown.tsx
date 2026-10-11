@@ -48,7 +48,7 @@ export default function SearchDropdown({ query, results }: SearchDropdownProps){
                                 <div
                                     className="search-dropdown-item"
                                     key={movie.id}
-                                    onClick={() => navigate(`/movies/${movie.id}`)}
+                                    onClick={() => navigate(`/movies/${movie.slug}`)}
                                 >
                                     <img className="search-dropdown-poster" src={movie.posterUrl} alt={movie.title} />
                                     <div className="search-dropdown-info">

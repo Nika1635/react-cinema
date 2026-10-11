@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { useNavigate } from "react-router"
 import axios from "axios"
 import { useAuth } from "../../services/AuthContext.tsx"
-import { useAuthModal } from "../../services/authModalContext.tsx"
+import { useAuthModal } from "../../services/AuthModalContext.tsx"
 import SearchDropdown from "./SearchDropdown/SearchDropdown.tsx"
 import ProfileDropdown from "./ProfileDropdown/ProfileDropdown.tsx"
 

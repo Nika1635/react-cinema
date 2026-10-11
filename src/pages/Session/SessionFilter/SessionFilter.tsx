@@ -99,6 +99,7 @@ export default function SessionFilter({ filters, onChange, onClear }: SessionFil
                     <h2 className="session-filter-options">Date</h2>
                     <input
                         type="date"
+                        className="session-filter-options-date"
                         value={filters.date}
                         onChange={(e) => onChange({ ...filters, date: e.target.value })}
                     />
@@ -124,12 +125,12 @@ export default function SessionFilter({ filters, onChange, onClear }: SessionFil
                 </div>
             </div>
 
-            <p>{activeCount} filters active</p>
             {activeCount > 0 && (
                 <button type="button" onClick={onClear}>
                     Clear all
                 </button>
             )}
+            <p>{activeCount} filters active</p>
         </div>
     )
 }

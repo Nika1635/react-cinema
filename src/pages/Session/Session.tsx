@@ -3,6 +3,7 @@ import "./Session.css"
 import SessionFilter, { type Filters, emptyFilters } from "./SessionFilter/SessionFilter.tsx"
 import axios from "axios"
 import SessionCard from "./SessionCard/SessionCard.tsx"
+import Pagination from "./Pagination/Pagination.tsx"
 
 const API_URL = "https://api.kinoxii.redberryinternship.ge/api"
 
@@ -104,23 +105,14 @@ export default function Session() {
 
                 {meta && meta.lastPage > 1 && (
                     <div className="session-pagination">
-                        <button
-                            type="button"
-                            disabled={page <= 1 || loading}
-                            onClick={() => setPage((p) => p - 1)}
-                        >
-                            Previous
-                        </button>
-                        <span>
-                            Page {meta.currentPage} of {meta.lastPage}
-                        </span>
-                        <button
-                            type="button"
-                            disabled={page >= meta.lastPage || loading}
-                            onClick={() => setPage((p) => p + 1)}
-                        >
-                            Next
-                        </button>
+                        {meta && meta.lastPage > 1 && (
+                            <Pagination
+                                currentPage={meta.currentPage}
+                                lastPage={meta.lastPage}
+                                onPageChange={setPage}
+                                disabled={loading}
+                            />
+                        )}
                     </div>
                 )}
             </div>
