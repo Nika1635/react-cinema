@@ -1,6 +1,7 @@
 import "./ProfileDropdown.css"
 import { useEffect, useRef, useState } from "react"
 import { useNavigate } from "react-router"
+import { isProfileComplete } from "../../../services/profile.ts";
 
 type ProfileDropdownProps = {
     user: any;
@@ -11,7 +12,7 @@ export default function ProfileDropdown({ user, onLogout }: ProfileDropdownProps
     const [open, setOpen] = useState<boolean>(false)
     const wrapperRef = useRef<HTMLDivElement>(null)
     const navigate = useNavigate()
-
+    const displayName = user.fullName ?? user.username ?? ""
     useEffect(() => {
         const handleClick = (e: MouseEvent) => {
             if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
@@ -22,16 +23,15 @@ export default function ProfileDropdown({ user, onLogout }: ProfileDropdownProps
         return () => document.removeEventListener("mousedown", handleClick)
     }, [])
 
-    const initials = user.username
-        .split(" ")
-        .map((word: string) => word[0])
-        .join("")
-        .slice(0, 2)
-        .toUpperCase()
+    const initials = displayName.split(" ")
+                                .map((w: string) => w[0])
+                                .join("")
+                                .slice(0, 2)
+                                .toUpperCase()
 
-    const firstName = user.username.split(" ")[0]
+    const firstName = displayName.split(" ")[0]
 
-    const profileComplete = Boolean(user.avatar)
+    const profileComplete = isProfileComplete(user)
 
     const go = (path: string) => {
         setOpen(false)
@@ -41,7 +41,7 @@ export default function ProfileDropdown({ user, onLogout }: ProfileDropdownProps
     const avatar = (
         <div className="profile-menu-avatar">
             {user.avatar
-                ? <img src={user.avatar} alt={user.username} />
+                ? <img src={user.avatar} alt={user.fullName} />
                 : <span>{initials}</span>}
             <span className={`profile-menu-dot ${profileComplete ? "profile-menu-dot-complete" : ""}`}></span>
         </div>
@@ -64,7 +64,7 @@ export default function ProfileDropdown({ user, onLogout }: ProfileDropdownProps
                     <div className="profile-menu-user">
                         {avatar}
                         <div className="profile-menu-info">
-                            <h4 className="profile-menu-fullname">{user.username}</h4>
+                            <h4 className="profile-menu-fullname">{user.fullName}</h4>
                             <p className="profile-menu-email">{user.email}</p>
                         </div>
                     </div>

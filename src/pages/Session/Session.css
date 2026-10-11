@@ -12,7 +12,7 @@
     flex-direction: column;
     position: sticky;
     left: 51px;
-    top: calc(100vh - 1000px);
+    top: calc(100vh - 1030px);
 }
 
 .session-list{

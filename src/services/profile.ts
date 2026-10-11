@@ -1,0 +1,1 @@
+export const isProfileComplete = (u: any) => Boolean((u.fullName || u.username) && u.mobileNumber && u.dateOfBirth)

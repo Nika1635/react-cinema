@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router"
 import axios from "axios"
 import { useAuth } from "../../services/AuthContext.tsx"
+import BuyModal from "../../components/Modals/BuyModal/BuyModal.tsx"
 
 const BASE_URL = "https://api.kinoxii.redberryinternship.ge/api"
 
@@ -30,6 +31,7 @@ const getAge = (dateOfBirth: string) => {
 }
 
 export default function Details() {
+    const [selectedSession, setSelectedSession] = useState<any>(null)
     const { slug } = useParams()
     const navigate = useNavigate()
     const { user } = useAuth()
@@ -66,8 +68,13 @@ export default function Details() {
 
     return (
         <div className="movie-details-page">
-
-            {/* hero section */}
+            {selectedSession && (
+                <BuyModal
+                    session={selectedSession}
+                    movie={movie}
+                    onClose={() => setSelectedSession(null)}
+                />
+            )}
             <section className="movie-details-hero">
                 <img className="movie-details-backdrop" src={movie.backdropUrl} alt="" />
                 <div className="movie-details-hero-content">
@@ -153,7 +160,7 @@ export default function Details() {
                                                                     key={s.id}
                                                                     className={`movie-details-ticket ${blocked || s.isSoldOut ? "movie-details-ticket-disabled" : ""}`}
                                                                     disabled={blocked || s.isSoldOut}
-                                                                    onClick={() => navigate(`/booking/${s.id}`)}
+                                                                    onClick={() => setSelectedSession(s)}
                                                                 >
                                                                     <div className="movie-details-ticket-left">
                                                                         <h5 className="movie-details-ticket-time">{s.time}</h5>
