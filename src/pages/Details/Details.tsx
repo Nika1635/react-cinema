@@ -31,6 +31,8 @@ const getAge = (dateOfBirth: string) => {
 }
 
 export default function Details() {
+    const token = localStorage.getItem("token")
+    const isGuest = !token
     const [selectedSession, setSelectedSession] = useState<any>(null)
     const { slug } = useParams()
     const { user } = useAuth()
@@ -145,7 +147,7 @@ export default function Details() {
                                     <div className="movie-details-venue" key={v.venue.id}>
                                         <h3 className="movie-details-venue-name">{v.venue.name}</h3>
 
-                                        <div className="movie-details-halls">
+                                        <div className="movie-details-halls" >
                                             {hallNames.map((hallName) => {
                                                 const hallSessions = v.sessions.filter((s: any) => s.hall.name === hallName)
 
@@ -158,7 +160,7 @@ export default function Details() {
                                                                 <button
                                                                     key={s.id}
                                                                     className={`movie-details-ticket ${blocked || s.isSoldOut ? "movie-details-ticket-disabled" : ""}`}
-                                                                    disabled={blocked || s.isSoldOut}
+                                                                    disabled={isGuest || blocked || s.isSoldOut}
                                                                     onClick={() => setSelectedSession(s)}
                                                                 >
                                                                     <div className="movie-details-ticket-left">
